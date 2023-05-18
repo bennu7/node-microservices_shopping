@@ -1,0 +1,10 @@
+online_shopping_monolithic/node_modules/
+
+shopping_microservices/customer/node_modules/
+shopping_microservices/gateway/node_modules/
+shopping_microservices/products/node_modules/
+shopping_microservices/shopping/node_modules/
+
+.DS_Store
+.env
+.env.dev
