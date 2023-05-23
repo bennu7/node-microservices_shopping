@@ -137,9 +137,10 @@ class CustomerService {
 				qty,
 				isRemove
 			);
+
 			return FormateData(cartResult);
 		} catch (err) {
-			throw new APIError("Data Not found", err);
+			throw new APIError("Failed ManageCart", err);
 		}
 	}
 
@@ -149,6 +150,7 @@ class CustomerService {
 				customerId,
 				order
 			);
+			console.log("orderResult => ", orderResult);
 			return FormateData(orderResult);
 		} catch (err) {
 			throw new APIError("Data Not found", err);
@@ -163,7 +165,7 @@ class CustomerService {
 		switch (event) {
 			// *NOTE: 2 case ADD_TO_WISHLIST and ADD_TO_WISHLIST for method AddToWishlist()
 			case "ADD_TO_WISHLIST":
-			case "ADD_TO_WISHLIST":
+			case "REMOVE_FROM_WISHLIST":
 				this.AddToWishlist(userId, product);
 				break;
 			case "ADD_TO_CART":
@@ -175,8 +177,6 @@ class CustomerService {
 			case "CREATE_ORDER":
 				this.ManageOrder(userId, order);
 				break;
-			case "TESTING":
-				console.log("WORKING this Subscriber");
 			default:
 				break;
 		}

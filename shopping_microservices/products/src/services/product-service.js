@@ -67,7 +67,7 @@ class ProductService {
 		try {
 			return await this.repository.FindById(productId);
 		} catch (err) {
-			throw new APIError("Data Not found");
+			throw new APIError("Data Product Not found", 404);
 		}
 	}
 
@@ -82,7 +82,7 @@ class ProductService {
 
 			return FormateData(payload);
 		} else {
-			return FormateData({ error: "No Product Available" });
+			throw new APIError("Data Product Not Found", 404);
 		}
 	}
 }

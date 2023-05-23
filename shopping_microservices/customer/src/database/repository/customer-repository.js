@@ -164,7 +164,7 @@ class CustomerRepository {
 				if (cartItems.length > 0) {
 					let isExist = false;
 					cartItems.map((item) => {
-						if (item.product._id.toString() === product._id.toString()) {
+						if (item.product._id.toString() === _id.toString()) {
 							if (isRemove) {
 								cartItems.splice(cartItems.indexOf(item), 1);
 							} else {
@@ -190,6 +190,10 @@ class CustomerRepository {
 
 			throw new Error("Unable to add to cart!");
 		} catch (err) {
+			console.log(
+				"🚀 ~ file: customer-repository.js:193 ~ CustomerRepository ~ err:",
+				err
+			);
 			throw new APIError(
 				"API Error",
 				STATUS_CODES.INTERNAL_ERROR,
@@ -201,6 +205,10 @@ class CustomerRepository {
 	async AddOrderToProfile(customerId, order) {
 		try {
 			const profile = await CustomerModel.findById(customerId);
+			console.log(
+				"🚀 ~ file: customer-repository.js:208 ~ CustomerRepository ~ AddOrderToProfile ~ profile:",
+				profile
+			);
 
 			if (profile) {
 				if (profile.orders == undefined) {
@@ -212,6 +220,10 @@ class CustomerRepository {
 
 				const profileResult = await profile.save();
 
+				console.log(
+					"🚀 ~ file: customer-repository.js:225 ~ CustomerRepository ~ AddOrderToProfile ~ profileResult:",
+					profileResult
+				);
 				return profileResult;
 			}
 

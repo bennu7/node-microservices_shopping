@@ -50,4 +50,5 @@ const CustomerSchema = new Schema(
 	}
 );
 
+mongoose.set("debug", true);
 module.exports = mongoose.model("customer", CustomerSchema);

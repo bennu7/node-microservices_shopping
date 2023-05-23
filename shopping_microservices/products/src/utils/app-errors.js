@@ -30,7 +30,7 @@ class AppError extends Error {
 class APIError extends AppError {
 	constructor(
 		name,
-		statusCode = STATUS_CODES.INTERNAL_ERROR,
+		statusCode = statusCode || STATUS_CODES.INTERNAL_ERROR,
 		description = "Internal Server Error",
 		isOperational = true
 	) {

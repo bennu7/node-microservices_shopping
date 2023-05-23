@@ -8,7 +8,8 @@ module.exports = (app) => {
 
 		service.SubscribeEvents(payload);
 
-		console.log("======== Shopping Services received Event ========");
+		console.log("\t======== Customer Services received Event ========");
+		console.log("payload Customer Service event received: ", payload);
 
 		return res.status(200).json({ message: "Event received", payload });
 	});

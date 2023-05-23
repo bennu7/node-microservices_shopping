@@ -26,6 +26,10 @@ class ProductRepository {
 			});
 
 			const productResult = await product.save();
+			console.log(
+				"🚀 ~ file: product-repository.js:37 ~ ProductRepository ~ productResult:",
+				productResult
+			);
 			return productResult;
 		} catch (err) {
 			throw new APIError(

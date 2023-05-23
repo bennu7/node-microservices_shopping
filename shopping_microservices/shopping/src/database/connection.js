@@ -7,6 +7,7 @@ module.exports = async () => {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		});
+
 		console.log("Db mongo Connected", DB_URL);
 	} catch (error) {
 		console.log("Error ============");
